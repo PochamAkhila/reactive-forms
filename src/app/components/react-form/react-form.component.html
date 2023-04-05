@@ -1,0 +1,69 @@
+<form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="name">Name:</label><br/>
+        <input type="text" id="name" formControlName="name">
+        <div *ngIf="reactiveForm.get('name')?.invalid && reactiveForm.get('name')?.touched">
+            A valid name is required
+        </div>
+    </div>
+    <div>
+        <label for="email">Email:</label><br/>
+        <input type="email" id="email" formControlName="email">
+        <div *ngIf="reactiveForm.get('email')?.invalid && reactiveForm.get('email')?.touched">
+            A valid email is required
+        </div>
+    </div>
+
+    <div>
+        <label for="password">Password:</label><br/>
+        <input type="password" id="password" formControlName="password">
+        <div *ngIf="reactiveForm.get('password')?.invalid && reactiveForm.get('password')?.touched">
+            Password is required and should be at least 6 characters
+        </div>
+    </div>
+    <div>
+        <label for="confirmPassword">Confirm Password:</label><br/>
+        <input type="password" id="confirmPassword" formControlName="confirmPassword">
+        <div *ngIf="reactiveForm.get('ConfirmPassword')?.invalid && reactiveForm.get('ConfirmPassword')?.touched">
+            Confirm Password is required
+        </div>
+    </div>
+    <div>
+        <label>Gender:</label><br/>
+        <div>
+            <label for="male">
+                <input type="radio" id="male" name="gender" value="male" formControlName="gender" />
+                Male
+            </label>
+            <label for="female">
+                <input type="radio" id="female" name="gender" value="female" formControlName="gender" />
+                Female
+            </label>
+        </div>
+        <div *ngIf="reactiveForm.get('gender')?.invalid && reactiveForm.get('gender')?.touched">
+            You must agree to the terms and conditions
+        </div>
+    </div>
+    <div>
+        <label>Country:</label><br/>
+        <select formControlName="country" class="country">
+            <option value="">Select a country</option>
+            <option value="US">United States</option>
+            <option value="CA">Canada</option>
+            <option value="MX">Mexico</option>
+        </select>
+        <div *ngIf="reactiveForm.get('country')?.invalid && reactiveForm.get('country')?.touched">
+            You must agree to the terms and conditions
+        </div>
+    </div>
+    <div>
+        <input type="checkbox" id="termsAndConditions" formControlName="termsAndConditions">
+        <label for="termsAndConditions">I agree to the terms and conditions</label>
+        <div *ngIf="reactiveForm.get('termsAndConditions')?.invalid && reactiveForm.get('termsAndConditions')?.touched">
+            You must agree to the terms and conditions
+        </div>
+    </div>
+
+
+    <button type="submit" [disabled]="reactiveForm.invalid">Submit</button>
+</form>

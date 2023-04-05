@@ -1,0 +1,14 @@
+form{
+    margin: 150px 350px;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid;
+    padding: 20px 10px;
+    box-shadow: 10px 10px;
+}
+.country{
+    width: 180px;
+}
